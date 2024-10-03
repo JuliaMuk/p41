@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('age');
             $table->string('path_img')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -21,4 +21,6 @@ Route::get('/', function () {
 
 Route::get('/first', [MainController::class, 'show'])->name('first');
 
-Route::get('/students', [StudentController::class, 'index'])->name('student-index');
+Route::get('/students', [StudentController::class, 'index'])->name('student.index');
+
+Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('student.destroy');
