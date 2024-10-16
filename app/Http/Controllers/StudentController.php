@@ -29,6 +29,17 @@ class StudentController extends Controller
       return redirect()->back();
     }
 
+    public function update(Request $request, Student $student){
+      $data = $request -> validate([
+        'fname'=>'string',
+        'lname'=>'string',
+        'age'=>'integer'
+      ]);
+      $student->update($data);
+      //return redirect()->route('student.index');
+      return redirect()->back();
+    }
+
     public function show(Student $student){
       return view('student.edit', compact('student'));
     }
