@@ -1,6 +1,14 @@
 @extends('layouts.main')
 @section('content')
 <div class="md:container md:mx-auto">
+  <h2>оценки</h2>
+
+  @foreach($student->subjects as $subject)
+    <p>{{ $subject->title }}</p>
+    <p>{{ $subject->pivot->grade }}</p>
+  @endforeach
+
+
   <form method="POST" action="{{route('students.update',$student->id)}}">
   @csrf
   @method('put')

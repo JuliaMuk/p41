@@ -41,6 +41,12 @@ class StudentController extends Controller
     }
 
     public function show(Student $student){
-      return view('student.edit', compact('student'));
+
+      $number = Student::where('id',$student->id)
+              ->withCount('subjects')
+              ->get();
+
+
+      return view('student.edit', compact('student','number'));
     }
 }

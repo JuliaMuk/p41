@@ -17,6 +17,17 @@ return new class extends Migration
             $table->string('lname');
             $table->integer('age');
             $table->string('path_img')->nullable();
+            $table->foreignId('user_id')
+                  ->nullable()
+                  ->constrained()
+                  ->cascadeOnUpdate()
+                  ->nullOnDelete();
+            $table->foreignId('group_id')
+                  ->nullable()
+                  ->constrained()
+                  ->cascadeOnUpdate()
+                  ->nullOnDelete();
+
             $table->timestamps();
             $table->softDeletes();
         });
